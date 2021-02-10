@@ -56801,7 +56801,7 @@ return
   ; Saku check
   fileexist %9001,$BGM_Play
   if %9001 == 1 goto *BGM_Play_Mord
-  
+
   if %BGM_s_Ch = 1    mov $BGM_Play,"bgm\tsubaki.ogg";透百合
   if %BGM_s_Ch = 2    mov $BGM_Play,"bgm\natsu_no_tobira.ogg"
   if %BGM_s_Ch = 3    mov $BGM_Play,"bgm\HANE.ogg"
@@ -57026,6 +57026,49 @@ goto *BGM_Play_Mord
   if %Me_Number = 1052 mov $Me_Play,"sys_se\柱時計の鐘.WAV"     ;時計、１２時の鐘
   if %Me_Number = 1053 mov $Me_Play,"sys_se\柱時計の鐘2.WAV"     ;時計、１２時の鐘
 
+  ; Saku check
+  fileexist %9001,$Me_Play
+  if %9001 == 1 return
+  if %Me_Number =  1   mov $Me_Play,"ME\A1_03052.WAV"     ;飛行機のエンジン音（プロペラ△
+  if %Me_Number =  2   mov $Me_Play,"ME\A3_05051.WAV"     ;港の音△カモメ付き
+  if %Me_Number =  3   mov $Me_Play,"ME\A3_05045.WAV"     ;嵐の岸辺の音
+  if %Me_Number =  4   mov $Me_Play,"ME\A1_03055.WAV"     ;船のエンジン音△
+  if %Me_Number =  5   mov $Me_Play,"ME\A3_01005.WAV"     ;風の音△
+  if %Me_Number =  6   mov $Me_Play,"ME\A3_02012.WAV"     ;嵐の音△
+  if %Me_Number =  7   mov $Me_Play,"ME\A5_01033.WAV"     ;雨の音△
+  if %Me_Number =  8   mov $Me_Play,"ME\A1_12222.WAV"     ;古時計の秒針
+;  if %Me_Number =  9   mov $Me_Play,"ME\A5_08234.WAV"     ;柱時計
+;  if %Me_Number = 10   mov $Me_Play,"ME\A5_14445.WAV"     ;街の音△
+  if %Me_Number = 11   mov $Me_Play,"ME\clock_loop_l4.WAV" ;時計の音
+  if %Me_Number = 12   mov $Me_Play,"ME\rain_2.WAV" ;雨の音○ 静かめ
+  if %Me_Number = 13   mov $Me_Play,"ME\Rain4_Long.WAV" ;雨の音雷鳴混じり○
+  if %Me_Number = 14   mov $Me_Play,"ME\STORM2.WAV" ;暴風の音○
+  if %Me_Number = 15   mov $Me_Play,"ME\strange_clock.wav" ;時計の音深い○
+  if %Me_Number = 16   mov $Me_Play,"ME\A5_14446.wav" ;幽霊のような風
+  if %Me_Number = 17   mov $Me_Play,"ME\storm_flanger.wav" ;嵐フランジャー
+  if %Me_Number = 18   mov $Me_Play,"ME\wind_flanger_1.wav";風フランジャー
+  if %Me_Number = 19   mov $Me_Play,"ME\clock_flanger_3.wav";時計フランジャー
+  if %Me_Number = 20   mov $Me_Play,"ME\boiler_room.wav" ;重く低い機械音
+  if %Me_Number = 21   mov $Me_Play,"ME\flangefemale.wav" ;不気味な赤ん坊声
+  if %Me_Number = 22   mov $Me_Play,"ME\dark_phone_bell_far.wav";電話（小さすぎ！
+  if %Me_Number = 23   mov $Me_Play,"ME\dark_phone_bell.wav" ;電話音（大）
+  if %Me_Number = 24   mov $Me_Play,"ME\gaya0.wav" ;がやがや
+  if %Me_Number = 25   mov $Me_Play,"ME\in_car_3.WAV" ;電車、がたんごとん
+  if %Me_Number = 26   mov $Me_Play,"ME\cave_water_drop.wav" ;洞窟の水滴　ピチョン
+  if %Me_Number = 27   mov $Me_Play,"ME\cave_water_flow.wav" ;洞窟の水流　サラサラ
+
+;EP4追加
+  if %Me_Number = 28   mov $Me_Play,"ME\breaking_wind.wav"	;壊れた風の音
+  if %Me_Number = 29   mov $Me_Play,"ME\city_traffic.WAV" ;クラクション系
+  if %Me_Number = 30   mov $Me_Play,"ME\city_traffic_2.WAV" ;走行音系
+
+
+  ;時計用効果音
+  if %Me_Number = 1050 mov $Me_Play,"sys_se\clock_ticking.wav"     ;時計、針の進む音
+  if %Me_Number = 1051 mov $Me_Play,"sys_se\neji.wav"     ;時計、針の巻き戻る音
+  if %Me_Number = 1052 mov $Me_Play,"sys_se\grandfather_clock_bell.WAV"     ;時計、１２時の鐘
+  if %Me_Number = 1053 mov $Me_Play,"sys_se\grandfather_clock_bell_2.WAV"     ;時計、１２時の鐘
+
  return
 
 
@@ -57146,6 +57189,142 @@ if %Se_Number = 1040 mov $Se_Play,"sys_se\da_kane.wav"     ;スタート音（鐘の音、
 ;時計用効果音
 if %Se_Number = 1050 mov $Se_Play,"sys_se\clock_ticking.wav"     ;時計、針の進む音
 if %Se_Number = 1051 mov $Se_Play,"sys_se\ネジ.wav"     ;時計、針の巻き戻る音
+if %Se_Number = 1052 mov $Se_Play,"sys_se\da_kane2.wav"     ;時計、１２時の鐘
+
+
+;右クリック、キャラ追加時、Tips入手時の効果音
+if %Se_Number = 1060 mov $Se_Play,"sys_se\KT1.wav"		;キャラの追加（明るいバージョン）
+if %Se_Number = 1061 mov $Se_Play,"sys_se\mizu_ijou.wav"     ;キャラの状態変化（暗いバージョン）
+if %Se_Number = 1062 mov $Se_Play,"sys_se\KT1.wav"	     ;Tips入手A
+if %Se_Number = 1063 mov $Se_Play,"sys_se\mizu_ijou.wav"     ;Tips入手B
+
+
+;ガラスの割れる音（ランダム用、1100番の効果音が指定された、ランダムでガラスの割れる音を返す）
+notif %Se_Number = 1100 jumpf
+	rnd2 %ran,1,6
+	if %ran = 1 mov $Se_Play,"sys_se\ZS1.WAV"
+	if %ran = 2 mov $Se_Play,"sys_se\ZS2.WAV"
+	if %ran = 3 mov $Se_Play,"sys_se\ZS3.WAV"
+	if %ran = 4 mov $Se_Play,"sys_se\ZS4.WAV"
+	if %ran = 5 mov $Se_Play,"sys_se\ZS5.WAV"
+	if %ran = 6 mov $Se_Play,"sys_se\ZS6.WAV"
+~
+
+; Saku check
+fileexist %9001,$Se_Play
+if %9001 == 1 goto *Se_Play_Mord
+if %Se_Number =  1 mov $Se_Play,"SE\A5_06196.WAV"     ;タイトル
+if %Se_Number =  2 mov $Se_Play,"SE\A5_02047.WAV"     ;エンド
+if %Se_Number =  3 mov $Se_Play,"SE\A1_16258.WAV"     ;ぴゅーん（コミカル
+if %Se_Number =  4 mov $Se_Play,"SE\A1_17270.WAV"     ;きゅぴーん（閃く
+if %Se_Number =  5 mov $Se_Play,"SE\A5_08263.WAV"     ;しゃきーん
+if %Se_Number =  6 mov $Se_Play,"SE\A1_07130.WAV"     ;叩く（対物軽く
+if %Se_Number =  7 mov $Se_Play,"SE\A1_07131.WAV"     ;叩く（対物早く
+if %Se_Number =  8 mov $Se_Play,"SE\A1_07132.WAV"     ;叩く（対物鈍く
+if %Se_Number =  9 mov $Se_Play,"SE\A1_07133.WAV";ピュン軽い
+if %Se_Number = 10 mov $Se_Play,"SE\A5_04105.WAV"     ;叩く（対人
+if %Se_Number = 11 mov $Se_Play,"SE\A5_04107.WAV"     ;叩く（対人
+if %Se_Number = 12 mov $Se_Play,"SE\A5_10316.WAV"     ;打撃音
+if %Se_Number = 13 mov $Se_Play,"SE\A5_10317.WAV"     ;倒れる
+if %Se_Number = 14 mov $Se_Play,"SE\A1_21333.WAV"     ;足音（近づく
+if %Se_Number = 15 mov $Se_Play,"SE\A5_01023.WAV"     ;ドアを閉める（屋敷）
+if %Se_Number = 16 mov $Se_Play,"SE\heavy_door_closing_2.wav";ドアを開ける（屋敷）
+if %Se_Number = 17 mov $Se_Play,"SE\A5_07201.WAV"     ;大扉を開ける（屋敷）
+if %Se_Number = 18 mov $Se_Play,"SE\A5_07202.WAV"     ;大扉を閉める（屋敷）
+if %Se_Number = 19 mov $Se_Play,"SE\knock_2.wav"     ;ノック　イマイチ・軽い
+if %Se_Number = 20 mov $Se_Play,"SE\A5_10315.WAV"     ;ぶぉん！（スイング音
+if %Se_Number = 21 mov $Se_Play,"SE\distant_thunder_2.wav"     ;遠雷ゴロゴロ…
+if %Se_Number = 22 mov $Se_Play,"SE\horror.wav"     ;黄金の蝶々ME
+if %Se_Number = 23 mov $Se_Play,"SE\clock_grand_fathers3.wav";大時計初日終了ME・長いよー！se51はそこだけ切り抜いてあるので便利です
+if %Se_Number = 24 mov $Se_Play,"SE\07_se_umi.wav"  ;グロいME
+if %Se_Number = 25 mov $Se_Play,"SE\A6_24636.WAV"   ;カギ開けの音
+if %Se_Number = 26 mov $Se_Play,"SE\05_se_umi.wav"  ;不思議不気味ME
+if %Se_Number = 27 mov $Se_Play,"SE\thunder_3.wav"     ;落雷！　ドーン！
+if %Se_Number = 28 mov $Se_Play,"SE\SE4.WAV"     ;静かなる低音ME
+if %Se_Number = 29 mov $Se_Play,"ME\dark_phone_bell_far.wav";黒電話・目覚しME
+if %Se_Number = 30 mov $Se_Play,"SE\reload_fast.WAV";リロード速い！
+if %Se_Number = 31 mov $Se_Play,"SE\keychain.wav"     ;カチャリ（チャリチャリ）
+if %Se_Number = 32 mov $Se_Play,"SE\kusari.WAV"     ;扉を開けようとして鎖
+if %Se_Number = 33 mov $Se_Play,"SE\02se_umi.wav"  ;怖い物発見系ME
+if %Se_Number = 34 mov $Se_Play,"SE\01se_umi.wav"  ;怖い物衝撃！ME
+if %Se_Number = 35 mov $Se_Play,"SE\blood_4.wav"     ;血ぼた
+if %Se_Number = 36 mov $Se_Play,"SE\clash.wav"     ;煉獄の七杭
+if %Se_Number = 37 mov $Se_Play,"SE\ahaha.wav"     ;ハッハハハハ！
+if %Se_Number = 38 mov $Se_Play,"SE\lowclick.wav"  ;ゴポリ、グリ…
+if %Se_Number = 39 mov $Se_Play,"SE\dropped_hatchet.wav";ガランガラーン
+if %Se_Number = 40 mov $Se_Play,"SE\metal_pipe_hit.wav" ;コーン
+if %Se_Number = 41 mov $Se_Play,"SE\metal_pipe_hit_B.wav";キーン
+if %Se_Number = 42 mov $Se_Play,"SE\metal_pipe_hit_C.wav";カーン
+if %Se_Number = 43 mov $Se_Play,"SE\reload_slow.wav";リロードゆっくり！
+if %Se_Number = 44 mov $Se_Play,"SE\autolock_5.wav";書斎のオートロック
+if %Se_Number = 45 mov $Se_Play,"SE\03se_umi.wav";残酷衝撃…！！ME
+if %Se_Number = 46 mov $Se_Play,"SE\raihuru3d.wav";ライフル発砲！
+if %Se_Number = 47 mov $Se_Play,"SE\B1.WAV";バネの音：プイン
+if %Se_Number = 48 mov $Se_Play,"SE\B5.WAV";バネの音：ポヨン
+if %Se_Number = 49 mov $Se_Play,"SE\shutter_echo_1.wav";シャッター開ける
+if %Se_Number = 50 mov $Se_Play,"SE\shutter_close_echo_1.wav";閉める
+if %Se_Number = 51 mov $Se_Play,"SE\bell1.wav";24時の鐘の音（システム時計の）
+if %Se_Number = 52 mov $Se_Play,"SE\teleport_1.wav";テレポート
+if %Se_Number = 53 mov $Se_Play,"SE\lift_phone_receiver.wav";受話器を取る
+if %Se_Number = 54 mov $Se_Play,"SE\applause.wav";パチパチわーわー！
+if %Se_Number = 55 mov $Se_Play,"SE\mouhatsu.wav";ジュウ！　肉を焼く音
+if %Se_Number = 56 mov $Se_Play,"SE\Z1.wav";メタ空間展開
+if %Se_Number = 57 mov $Se_Play,"SE\barrier_tenkai_3.wav";軌跡の剣の展開
+if %Se_Number = 58 mov $Se_Play,"SE\tsubazeriai.wav";剣戟の音（ちょっと軽い）
+if %Se_Number = 59 mov $Se_Play,"SE\barrier_tenkai_2.wav";ベアト赤宣言
+
+if %Se_Number = 60 mov $Se_Play,"SE\heavy_impact_1.wav";
+if %Se_Number = 61 mov $Se_Play,"SE\heavy_impact_2.wav";
+if %Se_Number = 62 mov $Se_Play,"SE\heavy_impact_3.wav";
+if %Se_Number = 63 mov $Se_Play,"SE\impact.wav";
+if %Se_Number = 64 mov $Se_Play,"SE\B4.wav";
+if %Se_Number = 65 mov $Se_Play,"SE\B_long.wav";
+
+if %Se_Number = 66 mov $Se_Play,"SE\approaching_barrage.wav";
+if %Se_Number = 67 mov $Se_Play,"SE\04_se_umi.wav";怖い系SE
+
+if %Se_Number = 68 mov $Se_Play,"SE\car_sudden_stop.wav";
+if %Se_Number = 69 mov $Se_Play,"SE\school_bell.wav";
+if %Se_Number = 70 mov $Se_Play,"SE\pinpon_2.WAV";
+if %Se_Number = 71 mov $Se_Play,"SE\24_chime.wav";大広間の大時計の24時
+
+if %Se_Number = 72 mov $Se_Play,"SE\longsword_hit_01.wav";
+if %Se_Number = 73 mov $Se_Play,"SE\longsword_hit_02.wav";
+if %Se_Number = 74 mov $Se_Play,"SE\longsword_hit_03.wav";
+if %Se_Number = 75 mov $Se_Play,"SE\instant_movement_6.wav";
+
+if %Se_Number = 76 mov $Se_Play,"SE\hakushu.wav";
+if %Se_Number = 77 mov $Se_Play,"SE\searchlight_thing.WAV";
+if %Se_Number = 78 mov $Se_Play,"SE\goriri.WAV";石をする音（希望）
+if %Se_Number = 79 mov $Se_Play,"SE\jewel_break_1.wav";
+if %Se_Number = 80 mov $Se_Play,"SE\jewel_break_5.wav";
+;if %Se_Number = 79 mov $Se_Play,"SE\AAAAA.wav";
+
+
+
+;システム用効果音（錠前系の音）
+if %Se_Number = 1000 mov $Se_Play,"sys_se\zyosys7.WAV"  ;ボタンを押す音１
+if %Se_Number = 1001 mov $Se_Play,"sys_se\zyosys1.WAV"  ;ボタンを押す音２
+
+if %Se_Number = 1005 mov $Se_Play,"sys_se\zyosys3.WAV"  ;キャンセル音
+if %Se_Number = 1006 mov $Se_Play,"sys_se\ZS1.WAV"  	;EXIT音（ガラスが割れる音（小）に差替える）
+
+if %Se_Number = 1010 mov $Se_Play,"sys_se\page.wav"     ;ページをめくる音
+
+if %Se_Number = 1020 mov $Se_Play,"sys_se\ZS1.WAV"     ;一人死ぬ（ガラスが割れる音（小）に差替える）
+if %Se_Number = 1021 mov $Se_Play,"sys_se\one_re.wav"     ;一人生き返る（ワインを注ぐ音等？）
+if %Se_Number = 1022 mov $Se_Play,"sys_se\ZS1.WAV"     ;全員死ぬ
+if %Se_Number = 1023 mov $Se_Play,"sys_se\Z2.wav"     ;全員生き返る
+
+if %Se_Number = 1030 mov $Se_Play,"sys_se\mizu_d.wav"     ;セーブ音（水の落ちる音）
+if %Se_Number = 1031 mov $Se_Play,"sys_se\mizu_d2.wav"     ;セーブ音（水の落ちる音）
+
+if %Se_Number = 1040 mov $Se_Play,"sys_se\da_kane.wav"     ;スタート音（鐘の音、後で短い物に差替える））
+
+
+;時計用効果音
+if %Se_Number = 1050 mov $Se_Play,"sys_se\clock_ticking.wav"     ;時計、針の進む音
+if %Se_Number = 1051 mov $Se_Play,"sys_se\neji.wav"     ;時計、針の巻き戻る音
 if %Se_Number = 1052 mov $Se_Play,"sys_se\da_kane2.wav"     ;時計、１２時の鐘
 
 
